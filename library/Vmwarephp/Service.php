@@ -47,7 +47,7 @@ class Service {
 		if ($this->session) {
 			return $this->session;
 		}
-		$sessionManager = $this->getSessionManager();
+        $sessionManager = $this->getSessionManager();
 		$this->session = $sessionManager->acquireSession($this->vhost->username, $this->vhost->password);
 		return $this->session;
 	}
@@ -67,6 +67,8 @@ class Service {
 
 	private function makeSoapCall($method, $soapMessage) {
 		$this->soapClient->_classmap = $this->clientFactory->getClientClassMap();
+        print_r($this->soapClient->$method($soapMessage));
+        die;
 		try {
 			$result = $this->soapClient->$method($soapMessage);
 		} catch (\SoapFault $soapFault) {
