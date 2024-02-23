@@ -10,7 +10,7 @@ class Service {
 
 	static function makeConnected(\Vmwarephp\Vhost $vhost) {
 		$service = self::make($vhost);
-		$service->connect();
-		return $service;
+        $service->connect();
+        return $service;
 	}
 }

@@ -67,8 +67,6 @@ class Service {
 
 	private function makeSoapCall($method, $soapMessage) {
 		$this->soapClient->_classmap = $this->clientFactory->getClientClassMap();
-        print_r($this->soapClient->$method($soapMessage));
-        die;
 		try {
 			$result = $this->soapClient->$method($soapMessage);
 		} catch (\SoapFault $soapFault) {
