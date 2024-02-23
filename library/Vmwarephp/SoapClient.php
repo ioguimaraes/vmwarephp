@@ -4,7 +4,6 @@ class SoapClient extends \SoapClient {
     function __doRequest($request, $location, $action, $version, $one_way = 0) {
         $request = $this->appendXsiTypeForExtendedDatastructures($request);
         $headers = parent::__getLastResponseHeaders();
-        print_r($headers);
         $arHeaders = explode(PHP_EOL, $headers);
         foreach ($arHeaders as $value)
         {
